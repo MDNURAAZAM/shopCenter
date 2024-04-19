@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import data from "../../../public/data.json";
 import Image from "next/image";
 import star from "@/public/assets/svg/star.svg";
+import ImageContainer from "@/app/components/ImageContainer/ImageContainer";
 
 const ProductDetails = ({ params }) => {
   const { id } = params || {};
@@ -27,28 +28,7 @@ const ProductDetails = ({ params }) => {
     <main className="h-screen">
       <section className="bg-[#fafaf2] h-full py-20">
         <div className="w-11/12 lg:w-8/12 max-w-7xl mx-auto flex flex-col gap-12 lg:flex-row items-center justify-between">
-          <div className="w-full lg:w-7/12 border border-slate-500/20 p-4">
-            <Image
-              height={500}
-              width={400}
-              src={thumbnail}
-              className="w-[400px] h-[500px] mx-auto object-cover"
-              alt={title}
-            />
-
-            <div className="flex gap-4 mt-4">
-              {images?.map((img) => (
-                <Image
-                  width={100}
-                  height={100}
-                  key={img}
-                  src={img}
-                  className="mx-auto border object-cover"
-                  alt={title}
-                />
-              ))}
-            </div>
-          </div>
+          <ImageContainer thumbnail={thumbnail} images={images} title={title} />
           <div className="w-full lg:w-5/12">
             <h1 className="italic text-xl lg:text-3xl font-serif font-semibold">
               {title}
