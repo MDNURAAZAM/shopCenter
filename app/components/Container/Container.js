@@ -23,8 +23,8 @@ const Container = () => {
             Get the inside scoop
           </h1>
           <p className="text-center text-sm lg:text-base">
-            Sign up for new product drops, behind-the-scenes content, and
-            monthly "5 Things I'm Digging" emails
+            {`Sign up for new product drops, behind-the-scenes content, and
+            monthly "5 Things I'm Digging" emails`}
           </p>
           <form action="#" className="mb-5">
             <input
@@ -33,7 +33,7 @@ const Container = () => {
               placeholder="Enter your email"
             />
             <button className="w-full bg-[#1a1a1a] hover:bg-[#3a3a3a] text-center py-2 mt-2 text-white">
-              See what we're doing
+              {`See what we're doing`}
             </button>
           </form>
         </div>
