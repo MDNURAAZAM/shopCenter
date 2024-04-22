@@ -1,6 +1,9 @@
+"use client";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const Product = ({ product }) => {
+  const router = useRouter();
   const {
     id,
     title,
@@ -12,9 +15,16 @@ const Product = ({ product }) => {
   } = product || {};
 
   const discountPrice = Math.round(price - price * (discountPercentage / 100));
+
+  const handleClick = () => {
+    router.push(`products/${id}`);
+  };
   return (
-    <div>
-      <div style={{background: `url(${thumbnail})`}} className="relative delay-150 w-180px lg:w-[270px] h-[205px] lg:h-[310px] bg-[#f8f8f8] bg-cover bg-center transition-all duration-3000 ease-in-out transform"></div>
+    <div onClick={handleClick}>
+      <div
+        style={{ background: `url(${thumbnail})` }}
+        className="relative delay-150 w-180px lg:w-[270px] h-[205px] lg:h-[310px] bg-[#f8f8f8] bg-cover bg-center transition-all duration-3000 ease-in-out transform"
+      ></div>
       <h2 className="text-sm lg:text-base mt-2">
         <a className="text-base font-bold" href="./productPage.html">
           {title}

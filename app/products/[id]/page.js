@@ -4,11 +4,11 @@ import Image from "next/image";
 import star from "@/public/assets/svg/star.svg";
 import ImageContainer from "@/app/components/ImageContainer/ImageContainer";
 
-export function generateStaticParams() {
-  return data.map((d) => ({
-    id: d.id.toString()
-  }));
-}
+// export function generateStaticParams() {
+//   return data.map((d) => ({
+//     id: d.id.toString()
+//   }));
+// }
 
 const ProductDetails = ({ params }) => {
   const { id } = params || {};
