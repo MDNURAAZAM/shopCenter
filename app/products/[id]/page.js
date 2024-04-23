@@ -3,12 +3,13 @@ import data from "../../../public/data.json";
 import Image from "next/image";
 import star from "@/public/assets/svg/star.svg";
 import ImageContainer from "@/app/components/ImageContainer/ImageContainer";
+import Link from "next/link";
 
-// export function generateStaticParams() {
-//   return data.map((d) => ({
-//     id: d.id.toString()
-//   }));
-// }
+export function generateStaticParams() {
+  return data.map((d) => ({
+    id: d.id.toString()
+  }));
+}
 
 const ProductDetails = ({ params }) => {
   const { id } = params || {};
@@ -30,6 +31,7 @@ const ProductDetails = ({ params }) => {
   for (let index = 0; index < Math.ceil(rating); index++) {
     stars.push(<Image src={star} alt="star" width={20} />);
   }
+
   return (
     <main className="h-screen">
       <section className="bg-[#fafaf2] h-full py-20">
@@ -39,7 +41,9 @@ const ProductDetails = ({ params }) => {
             <h1 className="italic text-xl lg:text-3xl font-serif font-semibold">
               {title}
             </h1>
-            <span className="text-[#919090] my-3">{category}</span>
+            <Link href={`/category/${category}`}>
+              <span className="text-[#919090] my-3">{category}</span>
+            </Link>
             <div className="mt-3 flex items-center justify-start gap-1">
               {stars?.map((star, index) => (
                 <Fragment key={index}>{star}</Fragment>
